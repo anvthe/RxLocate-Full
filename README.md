@@ -23,9 +23,13 @@ RxLocate is a location-based prescription analysis tool developed. It provides e
   - Primeng
   
 - Backend:
+  - Java
   - Spring Boot
+  - Spring JPA
+  - Spring Security
+  - MySql
 
-## Installation
+## Installation Frontend
 
 1. Clone the repository:
 
