@@ -32,7 +32,7 @@ public class ExcelController {
 
     }
 
-     @GetMapping("/excel/{drugId}")
+     @GetMapping("/exl/{drugId}")
     public ResponseEntity<Resource> downloadExcelForDivision(@PathVariable Long drugId) {
         String fileName = "overview-division.xlsx";
         ByteArrayInputStream data = excelService.getExcelDataForDivision(drugId);
@@ -57,7 +57,7 @@ public class ExcelController {
                 .body(file);
     }
 
-    @GetMapping("/excel/{drugId}/{divisionId}")
+    @GetMapping("/excl/{drugId}/{divisionId}")
     public ResponseEntity<Resource> downloadExcelForDistrict(@PathVariable Long drugId,
                                                              @PathVariable Long divisionId) {
         String fileName = "overview-district.xlsx";
