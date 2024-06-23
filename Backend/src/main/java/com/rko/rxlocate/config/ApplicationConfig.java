@@ -16,9 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Configuration
-@RequiredArgsConstructor
 @EnableWebSecurity
-@Service
+@RequiredArgsConstructor
 public class ApplicationConfig {
     private final UserRepository repository;
 
