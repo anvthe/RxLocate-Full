@@ -32,6 +32,18 @@ public class ExcelController {
 
     }
 
+     @GetMapping("/excel/{drugId}")
+    public ResponseEntity<Resource> downloadExcelForDivision(@PathVariable Long drugId) {
+        String fileName = "overview-division.xlsx";
+        ByteArrayInputStream data = excelService.getExcelDataForDivision(drugId);
+        InputStreamResource file = new InputStreamResource(data);
+        return ResponseEntity.ok()
+                .header("Content-Disposition", "attachment; filename=" + fileName)
+                .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
+                .body(file);
+
+    }
+
     @GetMapping("/excel/{drugName}/{divisionName}")
     public ResponseEntity<Resource> downloadExcelForDistrict(@PathVariable String drugName,
                                                              @PathVariable String divisionName) {
@@ -45,7 +57,7 @@ public class ExcelController {
                 .body(file);
     }
 
-/*    @GetMapping("/excel/{drugId}/{divisionId}")
+    @GetMapping("/excel/{drugId}/{divisionId}")
     public ResponseEntity<Resource> downloadExcelForDistrict(@PathVariable Long drugId,
                                                              @PathVariable Long divisionId) {
         String fileName = "overview-district.xlsx";
@@ -56,6 +68,6 @@ public class ExcelController {
                 .header("Content-Disposition", "attachment; filename=" + fileName)
                 .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
                 .body(file);
-    }*/
+    }
 
 }
